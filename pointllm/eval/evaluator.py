@@ -399,7 +399,7 @@ class OpenAICloseSetClsEvaluator(OpenAIOpenFreeFormClsEvaluator):
                 # * not valid range
                 cls_result = -1
         except ValueError:
-            print(f"Error: unale to parse {gpt_response}.")
+            print(f"Error: unable to parse {gpt_response}.")
             cls_result = -1
 
         if cls_result == -1:
@@ -562,10 +562,10 @@ class OpenAICloseSetClsEvaluator(OpenAIOpenFreeFormClsEvaluator):
         print('-' * 80)
         if self.total_predictions - self.invalid_responses == 0:
             accuracy = 0 # * no results and get error
+            clean_accuracy = 0
         else:
             accuracy = self.correct_predictions / self.total_predictions * 100
             clean_accuracy = (self.correct_predictions - self.invalid_correct_predictions) / (self.total_predictions - self.invalid_responses) * 100
-        accuracy = self.correct_predictions / self.total_predictions * 100
         print("Results:")
         print(f"Accuracy: {accuracy:.2f}%")
         print(f"Clean Accuracy: {clean_accuracy:.2f}%",)
@@ -638,7 +638,7 @@ class OpenAIObjectCaptioningEvaluator(OpenAIOpenFreeFormClsEvaluator):
                 # * not valid range
                 gpt_score = -1
         except ValueError:
-            print(f"Error: unale to parse {gpt_response}.")
+            print(f"Error: unable to parse {gpt_response}.")
             gpt_score = -1
 
         if gpt_score == -1:
